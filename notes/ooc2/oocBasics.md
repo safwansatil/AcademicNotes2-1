@@ -17,3 +17,18 @@ Too many dependencies    Minimal dependencies
 ```
 
 A well-designed system exhibits high cohesion (each component has a single, clear responsibility) and loose coupling (components interact through well-defined interfaces with minimal knowledge of each other's internals).
+
+
+
+### Creating a Custom Exception Class in Java
+```java
+class InvalidPizzaOrderException extends Exception{
+    public InvalidPizzaOrderException(String msg){
+        super(msg);
+    }
+}
+```
+
+### Relationship Difference 
+
+![difference](./img/differenceBetweenRelations.png)

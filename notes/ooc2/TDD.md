@@ -35,6 +35,34 @@ assertNotNull(object);
 // Example: assertNotNull(user.getName());
 ```
 
+AssertTrue and AssertThrows:
+```java
+
+public class TestCalculator{
+    Calculator calc = new Calculator();
+
+    @Test
+    public void testDivideByZero(){
+        assertThrows(ArithmeticException.class, ()->calc.divide(10, 0));
+    }
+}
+
+public class TestShop{
+    Shop shop = new Shop();
+
+    @Test
+    public void testBuyInventoryPrint(){
+        // set outpput stream
+        java.io.ByteArrayOutputStream outContent = new java.io.ByteArrayOutputStream();
+        System.setOut(new java.io.PrintStream(outContent));
+
+        shop.buyInventory("Pizza");
+        String output = outContent.toString().trim();
+        assertTrue(output.contains("Bought Pizza"));
+    }
+}
+```
+
 ---
 
 Proper TDD:
@@ -110,7 +138,29 @@ public void withdrawShouldDecreaseBalance() {
 
 // Add withdraw method
 ```
+## JUnit annotations
+```java
+@Test  // Marks a test method
+public void testSomething() { /*...*/ }
 
+@Before  // Runs BEFORE each test
+public void setUp() { 
+    // Initialize test data
+}
+
+@After  // Runs AFTER each test  
+public void tearDown() {
+    // Clean up resources
+}
+
+@BeforeClass  // Runs ONCE before all tests (static)
+public static void globalSetUp() { /*...*/ }
+
+@AfterClass  // Runs ONCE after all tests (static)
+public static void globalTearDown() { /*...*/ }
+```
+
+---
 
 ```text
 "Never write new functionality without a failing test first."
