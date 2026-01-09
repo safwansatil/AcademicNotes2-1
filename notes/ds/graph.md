@@ -3,6 +3,9 @@ Trees can not show many to many relation. Graph is the general non-linear data s
 complex non-hierarchical relationships between nodes.
 Graphs are used to model any situation where entities (things) are related to each other in pairs.
 
+Here,<br>
+V(G) is finite,  non-empty set of  vertices and E(G) is set of edges that connect the vertices
+<br>
 ## Terminology
 - **Neighbor**: Two nodes are neighbors if they are connected directly by an edge.
 - **Degree**: The degree of a node is the number of edges connected to it.
@@ -24,12 +27,12 @@ Graphs are used to model any situation where entities (things) are related to ea
 
 # Directed Graph (Digraph)
 
-![digraph](./digraph.png)
+![digraph](./img/digraph.png)
 
-![degree](./indegree&outdegree.png)
+![degree](./img/indegree&outdegree.png)
 
 ## Terminology
-![digraph terminology](./digraphTerms.png)
+![digraph terminology](./img/digraphTerms.png)
 
 - **Simple Directed Graph**: A directed graph with no loops and no multiple edges in the same direction between two nodes.
 
@@ -41,13 +44,14 @@ Graphs are used to model any situation where entities (things) are related to ea
 - **Unilaterally Connected**: A directed graph is unilaterally connected if for every pair of nodes u and v, there is a directed path from u to v **or** from v to u (or both).
 
 ### Articulation Points
-![articulation points](./articulationPoints.png)
+ A vertex v in a connected undirected graph is an articulation point if and only if removing v (and its incident edges) results in a graph with more connected components than the original.
+![articulation points](./img/articulationPoints.png)
 
 - **Bridge**: An edge in a graph whose removal increases the number of connected components in the graph. (Cut edge)
 - **Bi-connected Graph**: A connected graph with no articulation points.
 
 ### Adjacency Matrix
-![adjacency matrix](./adjacencyMatrix.png)
+![adjacency matrix](./img/adjacencyMatrix.png)
 
 **The Core Idea**
 For a graph with n vertices, the adjacency matrix A is an n×n matrix where:

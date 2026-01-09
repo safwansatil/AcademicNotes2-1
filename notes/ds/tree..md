@@ -57,19 +57,19 @@ int height(Node* node) {
 - Huffman trees are weighted and strictly binary trees used for optimal prefix coding in data compression.
 
 - Huffman COnstruction:
-  ![huffman](./huffman%20algorithm.png)
+  ![huffman](./img/huffman%20algorithm.png)
 
 - In huffman coding, more frequent characters are assigned shorter codes, while less frequent characters receive longer codes. This variable-length coding minimizes the overall size of the encoded data.
 
 - In huffman tree, no code is a prefix of any other code, ensuring unambiguous decoding.
 
 - Huffman Decoding:
-  ![huffman decoding](./huffman%20decoding.png)
+  ![huffman decoding](./img/huffman%20decoding.png)
 
 - Binary Search Tree:
-  ![bst](./bst.png)
+  ![bst](./img/bst.png)
   Bst is search efficient because it reduces the number of comparisons needed to find a value by half at each step, leading to an average time complexity of O(log n) for search operations.
-  ![whyBst](./whyBst.png)
+  ![whyBst](./img/whyBst.png)
 
 - BST Operations:
 
