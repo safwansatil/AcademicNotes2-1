@@ -45,48 +45,69 @@ private:
     }
 
 public:
-    void push(int value){
+    void push(int value)
+    {
         heap.push_back(value);
-        bubbleUp(heap.size()-1); // 0-based indexing
-
+        bubbleUp(heap.size() - 1); // 0-based indexing
     }
-    int pop(){
-        if(heap.empty()){
+    int pop()
+    {
+        if (heap.empty())
+        {
             return -1;
         }
         int root = heap[0];
         heap[0] = heap.back();
         heap.pop_back();
-        if(!heap.empty()){
+        if (!heap.empty())
+        {
             bubbleDown(0);
         }
         return root;
     }
-    int top(){
-        if(heap.empty()){
+    int top()
+    {
+        if (heap.empty())
+        {
             return -1;
         }
         return heap[0];
     }
-    bool empty(){
+    bool empty()
+    {
         return heap.empty();
     }
-    void heapify(vector<int>& arr){
+    void heapify(vector<int> &arr)
+    {
         heap = arr;
-        for(int i = heap.size()/2 -1; i< 0; i--){
+        for (int i = heap.size() / 2 - 1; i < 0; i--)
+        {
             bubbleDown(i);
         }
     }
-    void print(){
+    void print()
+    {
         cout << "Heap Array: ";
-        for(int val: heap){
+        for (int val : heap)
+        {
             cout << val << " ";
             cout << endl;
         }
     }
+    MinHeap() {}
     MinHeap(vector<int> &arr)
     {
         heapify(arr);
     }
 };
 
+void heapsort(vector<int> &arr)
+{
+    MinHeap h;
+    h.heapify(arr); // Build heap O(n)
+
+    for (int i = 0; i < arr.size(); i++)
+    {
+        arr[i] = h.pop(); // Extract min repeatedly O(n log n)
+    }
+}
