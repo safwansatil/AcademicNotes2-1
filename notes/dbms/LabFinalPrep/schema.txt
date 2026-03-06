@@ -1,0 +1,134 @@
+DVD Rental Database Schema
+----
+
+Tables Structure
+actor
+Column	Type	Constraints	Description
+actor_id	INT	PRIMARY KEY	Unique identifier for each actor
+first_name	VARCHAR(45)	NOT NULL	Actor's first name
+last_name	VARCHAR(45)	NOT NULL	Actor's last name
+film
+Column	Type	Constraints	Description
+film_id	INT	PRIMARY KEY	Unique identifier for each film
+title	VARCHAR(255)	NOT NULL	Film title
+description	TEXT		Plot summary or description
+release_year	INT		Year the film was released
+language_id	INT	FOREIGN KEY (language)	Language of the film
+rental_duration	INT		Number of days for rental
+rental_rate	DECIMAL(4,2)		Cost to rent the film
+length	INT		Film length in minutes
+replacement_cost	DECIMAL(5,2)		Cost to replace the DVD
+rating	VARCHAR(10)		Film rating (G, PG, R, etc.)
+language
+Column	Type	Constraints	Description
+language_id	INT	PRIMARY KEY	Unique identifier for each language
+name	VARCHAR(20)	NOT NULL	Language name
+inventory
+Column	Type	Constraints	Description
+inventory_id	INT	PRIMARY KEY	Unique identifier for each physical DVD copy
+film_id	INT	FOREIGN KEY (film)	The film this copy represents
+store_id	INT	FOREIGN KEY (store)	Which store owns this copy
+category
+Column	Type	Constraints	Description
+category_id	INT	PRIMARY KEY	Unique identifier for each category
+name	VARCHAR(25)	NOT NULL	Category name (Action, Comedy, etc.)
+payment
+Column	Type	Constraints	Description
+payment_id	INT	PRIMARY KEY	Unique identifier for each payment
+customer_id	INT	FOREIGN KEY (customer)	Customer who made the payment
+staff_id	INT	FOREIGN KEY (staff)	Staff who processed the payment
+amount	DECIMAL(5,2)	NOT NULL	Payment amount
+payment_date	DATE	NOT NULL	Date payment was made
+rental
+Column	Type	Constraints	Description
+rental_id	INT	PRIMARY KEY	Unique identifier for each rental transaction
+inventory_id	INT	FOREIGN KEY (inventory)	Which DVD copy was rented
+customer_id	INT	FOREIGN KEY (customer)	Who rented the DVD
+staff_id	INT	FOREIGN KEY (staff)	Staff who processed the rental
+rental_date	DATE	NOT NULL	When the DVD was rented
+return_date	DATE		When the DVD was returned (NULL if not returned)
+staff
+Column	Type	Constraints	Description
+staff_id	INT	PRIMARY KEY	Unique identifier for each staff member
+first_name	VARCHAR(45)	NOT NULL	Staff member's first name
+last_name	VARCHAR(45)	NOT NULL	Staff member's last name
+address_id	INT	FOREIGN KEY (address)	Staff member's address
+store_id	INT	FOREIGN KEY (store)	Store where staff works
+email	VARCHAR(50)		Staff member's email
+store
+Column	Type	Constraints	Description
+store_id	INT	PRIMARY KEY	Unique identifier for each store
+address_id	INT	FOREIGN KEY (address)	Store location address
+manager_staff_id	INT	FOREIGN KEY (staff)	Staff ID of store manager
+address
+Column	Type	Constraints	Description
+address_id	INT	PRIMARY KEY	Unique identifier for each address
+address	VARCHAR(50)	NOT NULL	Street address
+city_id	INT	FOREIGN KEY (city)	City where address is located
+postal_code	VARCHAR(10)		Postal/ZIP code
+phone	VARCHAR(20)		Phone number
+district	VARCHAR(20)		District or region
+city
+Column	Type	Constraints	Description
+city_id	INT	PRIMARY KEY	Unique identifier for each city
+city	VARCHAR(50)	NOT NULL	City name
+country_id	INT	FOREIGN KEY (country)	Country where city is located
+country
+Column	Type	Constraints	Description
+country_id	INT	PRIMARY KEY	Unique identifier for each country
+country	VARCHAR(50)	NOT NULL	Country name
+Missing Junction Tables (Implied)
+Based on the schema, these many-to-many relationship tables are needed but not shown:
+
+film_actor
+Column	Type	Constraints
+actor_id	INT	FOREIGN KEY (actor)
+film_id	INT	FOREIGN KEY (film)
+Primary Key: (actor_id, film_id)		
+film_category
+Column	Type	Constraints
+film_id	INT	FOREIGN KEY (film)
+category_id	INT	FOREIGN KEY (category)
+Primary Key: (film_id, category_id)		
+customer
+(Missing but referenced in rental and payment)
+
+Column	Type	Constraints
+customer_id	INT	PRIMARY KEY
+first_name	VARCHAR(45)	
+last_name	VARCHAR(45)	
+address_id	INT	FOREIGN KEY (address)
+store_id	INT	FOREIGN KEY (store)
+email	VARCHAR(50)	
+Relationship Summary
+film → language (Many-to-One)
+
+film ↔ actor (Many-to-Many via film_actor)
+
+film ↔ category (Many-to-Many via film_category)
+
+inventory → film (Many-to-One)
+
+inventory → store (Many-to-One)
+
+rental → inventory (Many-to-One)
+
+rental → customer (Many-to-One)
+
+rental → staff (Many-to-One)
+
+payment → customer (Many-to-One)
+
+payment → staff (Many-to-One)
+
+staff → store (Many-to-One)
+
+staff → address (Many-to-One)
+
+store → address (One-to-One)
+
+store → staff (One-to-One for manager)
+
+address → city (Many-to-One)
+
+city → country (Many-to-One)

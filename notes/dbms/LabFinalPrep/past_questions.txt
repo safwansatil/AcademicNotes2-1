@@ -1,0 +1,49 @@
+Lab Final
+1 Lab Final
+Rank films using a weighted value calculation: (rental_rate × 0.5) + (length × 0.1) + (replacement_cost × 0.2). Based on the value, list only the top 3 films with their title, release year, and calculated score.
+
+Find the top 5 customers who have spent the highest total amount. Show customer ID, first name, last name, and total amount spent.
+
+List all film titles consisting of more than one word that have been rented by customers from at least two different cities. Also list the total number of unique customers who rented each of those films, sorted by the customer count in descending order.
+
+List the country having the most number of cities without any registered customers.
+
+Write a procedure named update_customer_email that accepts a customer ID and a new email string. Update the targeted customer's email address and refresh their last_update timestamp.
+
+Write an anonymous block that checks whether a given customer ID currently has any active rentals. Print a notice stating either: (i) "Customer has active rentals", or (ii) "Customer has no active rentals".
+
+Write an anonymous block to show all films with a replacement cost greater than 28.00.
+
+Write an anonymous block that defines a customer ID and a start date. Calculate and print their total spend from that start date up to the current date.
+
+Create a function that prints customers who did not rent any film in the last N days, taking the number of days as an input parameter.
+
+Calculate each customer's percentage of their store's total revenue. Show their name and store ID.
+
+another set:
+ 
+ 
+ Lab Final
+Rank films using a weighted value calculation: (rental_rate × 0.5) + (length × 0.1) + (replacement_cost × 0.2). Based on the value, list only the top 3 films with their title, release year, and calculated score.
+
+Find the top 5 customers who have spent the highest total amount. Show customer ID, first name, last name, and total amount spent.
+
+List all film titles consisting of more than one word that have been rented by customers from at least two different cities. Also list the total number of unique customers who rented each of those films, sorted by the customer count in descending order.
+
+List the country having the most number of cities without any registered customers.
+
+Write a procedure named update_customer_email that accepts a customer ID and a new email string. Update the targeted customer's email address and refresh their last_update timestamp.
+
+Write an anonymous block that checks whether a given customer ID currently has any active rentals. Print a notice stating either: (i) "Customer has active rentals", or (ii) "Customer has no active rentals".
+
+Write an anonymous block to show all films with a replacement cost greater than 28.00.
+
+Write an anonymous block that defines a customer ID and a start date. Calculate and print their total spend from that start date up to the current date.
+
+Create a function that prints customers who did not rent any film in the last N days, taking the number of days as an input parameter.
+
+Calculate each customer's percentage of their store's total revenue. Show their name and store ID.
+
+
+
+
