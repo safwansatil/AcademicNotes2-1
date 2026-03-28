@@ -1,3 +1,5 @@
 linearAlgebraGilbertStrang.pdf
 *.exe
 scjp.pdf
+media/
+__pycache__/
